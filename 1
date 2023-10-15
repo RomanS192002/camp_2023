@@ -1,0 +1,23 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+np.random.seed(2000)
+a = np.random.randint(1, 100, 20)
+
+res = {'l': 11, 'r': 17, 'lake': 92}
+
+plt.plot(a, label='Random Heights')
+
+plt.plot(range(res['l'], res['r']), [res['lake']] * (res['r'] - res['l']), c='red', label='Deepest Lake')
+
+lines_to_highlight = [11, 12, 13, 14, 15]
+for i in lines_to_highlight:
+    plt.plot([i, i + 1], [a[i], a[i + 1]], c='red',)
+
+plt.title("2D Mountain Landscape with Deepest Lake and Highlighted Lines")
+plt.xlabel("Position")
+plt.ylabel("Height")
+plt.legend()
+plt.grid(True)
+plt.show()
